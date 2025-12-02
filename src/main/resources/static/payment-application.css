@@ -1,0 +1,406 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+    background: linear-gradient(135deg, #a76fb4 0%, #cfaee4 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 550px;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    color: white;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.secure-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.lock-icon {
+    font-size: 14px;
+}
+
+.payment-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease;
+}
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    color: #1a1a1a;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+.payment-details {
+    background: #f8f9fa;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.value {
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.amount-value {
+    font-size: 22px;
+    color: #d292cf;
+}
+
+.mono {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    background: #e9ecef;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Test Controls */
+.test-controls {
+    background: #fff3cd;
+    border: 2px solid #d292cf;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 28px;
+}
+
+.test-controls h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: #d292cf;
+    font-weight: 600;
+}
+
+.test-hint {
+    font-size: 13px;
+    color: #d292cf;
+    margin-bottom: 16px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.radio-option:hover {
+    background: #ffe69c;
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #a76fb4;
+}
+
+.radio-label {
+    font-size: 14px;
+    color: #d292cf;
+    font-weight: 500;
+}
+
+/* Buttons */
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 12px;
+}
+
+.btn-cancel,
+.btn-confirm {
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: -0.3px;
+}
+
+.btn-cancel {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.btn-cancel:hover {
+    background: #dee2e6;
+    transform: translateY(-2px);
+}
+
+.btn-confirm {
+    background: #a76fb4;
+    color: white;
+}
+
+.btn-confirm:hover {
+    background: #a76fb4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgb(167, 111, 180);
+}
+
+.btn-cancel:active,
+.btn-confirm:active {
+    transform: translateY(0);
+}
+
+.btn-cancel:disabled,
+.btn-confirm:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.result-card {
+    background: white;
+    border-radius: 16px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.result-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.result-icon.success {
+    background: #eeb4e7;
+}
+
+.result-icon.success::before {
+    content: "✓";
+    color: white;
+    font-weight: bold;
+}
+
+.result-icon.error {
+    background: #cfaee4;
+}
+
+.result-icon.error::before {
+    content: "✕";
+    color: white;
+    font-weight: bold;
+}
+
+.result-icon.processing {
+    background: #d292cf;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.result-icon.processing::before {
+    content: "⟳";
+    color: white;
+    font-weight: bold;
+    animation: spin 1s linear infinite;
+}
+
+#result-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+}
+
+#result-text {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.result-detail {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 28px;
+}
+
+#result-actions {
+    margin-top: 28px;
+}
+
+.btn-retry,
+.btn-redirect {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-retry {
+    background: #a76fb4;
+    color: white;
+}
+
+.btn-retry:hover {
+    background: #a76fb4;
+    transform: translateY(-2px);
+}
+
+.btn-redirect {
+    background: #eeb4e7;
+    color: white;
+}
+
+.footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 24px;
+    font-size: 13px;
+}
+
+.footer-small {
+    font-size: 11px;
+    margin-top: 6px;
+    opacity: 0.6;
+}
+
+.close-message {
+    font-size: 15px;
+    color: #666;
+    margin-top: 12px;
+    font-weight: 500;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .payment-card,
+    .result-card {
+        padding: 28px 24px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .button-group {
+        grid-template-columns: 1fr;
+    }
+}

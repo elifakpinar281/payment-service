@@ -1,4 +1,4 @@
-package at.fhv.payment.paymentservice;
+package at.fhv.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

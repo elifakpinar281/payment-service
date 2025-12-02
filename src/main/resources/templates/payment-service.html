@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Payment - SecurePay Gateway</title>
+    <link rel="stylesheet" href="payment-application.css">
+</head>
+<body>
+<div class="container">
+    <div class="payment-card" id="overview-card">
+        <h1>Confirm Your Payment</h1>
+        <p class="subtitle">Please review your payment details before confirming</p>
+
+        <div class="payment-details">
+            <div class="detail-row">
+                <span class="label">Amount:</span>
+                <span class="value amount-value" id="display-amount">€0.00</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Payment Method:</span>
+                <span class="value" id="display-method">Loading...</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Transaction ID:</span>
+                <span class="value mono" id="display-token">Loading...</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Merchant:</span>
+                <span class="value">Nature Connect Events</span>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="btn-cancel" id="cancel-btn">Cancel</button>
+            <button type="button" class="btn-confirm" id="confirm-btn">Confirm Payment</button>
+        </div>
+    </div>
+
+    <div class="result-card" id="result-card" style="display: none;">
+        <div class="result-icon" id="result-icon"></div>
+        <h2 id="result-title"></h2>
+        <p id="result-text"></p>
+        <p class="result-detail" id="result-detail"></p>
+        <div id="result-actions"></div>
+    </div>
+</div>
+
+<script src="payment-application.js"></script>
+</body>
+</html>
