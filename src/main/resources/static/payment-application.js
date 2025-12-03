@@ -3,6 +3,11 @@ const token = urlParams.get('token');
 const amount = parseFloat(urlParams.get('amount'));
 const method = urlParams.get('method');
 const bookingId = urlParams.get('bookingId');
+
+const HOST = "10.0.40.198";
+const MAIN_BASE = `http://${HOST}:8080`;
+const PAYMENT_BASE = `http://${HOST}:9090`;
+
 console.log("Amount:", amount);
 console.log("Method:", method);
 console.log("Token:", token);
@@ -23,7 +28,7 @@ function formatPaymentMethod(method) {
 }
 
 document.getElementById('cancel-btn').addEventListener('click', function () {
-    window.location.href = `http://localhost:8080/booking/payment/${bookingId}`;
+    window.location.href = `${MAIN_BASE}/booking/payment/${bookingId}`;
 });
 
 document.getElementById('confirm-btn').addEventListener('click', async function () {
@@ -31,7 +36,7 @@ document.getElementById('confirm-btn').addEventListener('click', async function 
     showResult('processing', 'Processing Payment', 'Please wait...', '');
 
     try {
-        const response = await fetch('http://localhost:9090/api/payment/pay', {
+        const response = await fetch(`${PAYMENT_BASE}/api/payment/pay`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(bookingId)
@@ -46,7 +51,7 @@ document.getElementById('confirm-btn').addEventListener('click', async function 
             if (window.opener && !window.opener.closed) {
                 setTimeout(() => {
                     window.opener.location.replace(
-                        `http://localhost:8080/booking/confirmation/${bookingId}`
+                        `${MAIN_BASE}/booking/confirmation/${bookingId}`
                     );
                     window.close();
                 }, 1500);
@@ -88,7 +93,7 @@ async function sendWebhook(status) {
     };
 
     try {
-        const response = await fetch('http://localhost:8080/api/webhooks/payment', {
+        const response = await fetch(`${MAIN_BASE}/api/webhooks/payment`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
