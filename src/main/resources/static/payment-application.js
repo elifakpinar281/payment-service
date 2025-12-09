@@ -4,9 +4,13 @@ const amount = parseFloat(urlParams.get('amount'));
 const method = urlParams.get('method');
 const bookingId = urlParams.get('bookingId');
 
-const HOST = "10.0.40.198";
-const MAIN_BASE = `http://${HOST}:8080`;
-const PAYMENT_BASE = `http://${HOST}:9090`;
+const host = window.location.hostname;          
+const protocol = window.location.protocol;
+
+const PAYMENT_BASE = window.location.origin;
+
+const MAIN_BASE = `${protocol}//${host}:8080`;
+
 
 console.log("Amount:", amount);
 console.log("Method:", method);
